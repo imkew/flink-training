@@ -8,6 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>flink-examples</module>
+        <module>flink-transformations</module>
     </modules>
 
     <properties>

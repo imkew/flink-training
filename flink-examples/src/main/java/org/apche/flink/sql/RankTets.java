@@ -44,7 +44,5 @@ public class RankTets {
         tableEnv.executeSql(test);
         tableEnv.executeSql(wangketest);
         tableEnv.executeSql("insert into wangketest select company_id,create_at,bill_date,end_amt,rk from (select *,row_number()over(order by bill_date,create_at) as rk from test) where rk < 100").print();
-
-
     }
 }

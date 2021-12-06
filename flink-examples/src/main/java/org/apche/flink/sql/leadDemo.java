@@ -34,6 +34,7 @@ public class leadDemo {
                 " 'zookeeper.quorum' = 'zookeeper1:2181,zookeeper2:2181,zookeeper3:2181'\n" +
                 ")";
 
+
         tableEnv.executeSql(wangketest);
         tableEnv.executeSql(space_dwd_fund_pur_company_adjust_union_hbase);
         tableEnv.executeSql("select company_id,bill_date,end_amt,lag(end_amt)over(partition by company_id,bill_date order by pt) last_end_amt from (select pt,company_id,bill_date,sum(cast(total_amt as int))over(partition by company_id,bill_date order by pt) end_amt from space_dwd_fund_pur_company_adjust_union_hbase)").print();

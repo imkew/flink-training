@@ -14,6 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <hbase.version>2.2.7</hbase.version>
     </properties>
 
     <dependencies>
@@ -21,6 +22,48 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-csv</artifactId>
             <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-hbase-2.2_2.11</artifactId>
+            <version>${flink.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.hadoop</groupId>
+                    <artifactId>hadoop-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hadoop-common</artifactId>
+                    <groupId>org.apache.hadoop</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hadoop-client</artifactId>
+                    <groupId>org.apache.hadoop</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hadoop-yarn-common</artifactId>
+                    <groupId>org.apache.hadoop</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hadoop-mapreduce-client-core</artifactId>
+                    <groupId>org.apache.hadoop</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hadoop-auth</artifactId>
+                    <groupId>org.apache.hadoop</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+        <groupId>org.apache.hbase</groupId>
+        <artifactId>hbase-common</artifactId>
+        <version>${hbase.version}</version>
         </dependency>
     </dependencies>
 

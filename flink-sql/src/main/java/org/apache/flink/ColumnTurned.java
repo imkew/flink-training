@@ -29,7 +29,6 @@ public class ColumnTurned {
 
 
         tableEnv.executeSql(ods_account_shop);
-
         tableEnv.executeSql("select id ,corp_id ,shop_id ,init_amt from ods_account_shop, UNNEST(`data`) AS t (id ,corp_id ,shop_id ,account_id ,init_amt ,cur_amt ,create_at ,revise_at ,remark )").print();
     }
 }

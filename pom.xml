@@ -9,6 +9,7 @@
     <modules>
         <module>flink-examples</module>
         <module>flink-transformations</module>
+        <module>flink-sql</module>
     </modules>
 
     <properties>
@@ -24,6 +25,24 @@
     <dependencies>
 
         <!-- flink -->
+        <!-- 要将Java或Scala API添加到项目中，以便使用Table API和SQL -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-api-java-bridge_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!-- 在IDE中本地运行Table API和SQL程序，必须添加以下模块集 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner-blink_2.11</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!-- 定义函数实现自定义格式或连接器 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-common</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
@@ -73,6 +92,12 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-hbase-2.2_2.11</artifactId>
             <version>${flink.version}</version>
         </dependency>
         <!-- Add logging framework, to produce console output when running in the IDE. -->

@@ -65,6 +65,11 @@
         <artifactId>hbase-common</artifactId>
         <version>${hbase.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ru.yandex.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+            <version>0.1.40</version>
+        </dependency>
     </dependencies>
 
 </project>

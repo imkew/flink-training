@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/flink-examples/flink-examples.iml" filepath="$PROJECT_DIR$/flink-examples/flink-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-transformations/flink-batch.iml" filepath="$PROJECT_DIR$/flink-transformations/flink-batch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-sql/flink-sql.iml" filepath="$PROJECT_DIR$/flink-sql/flink-sql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-examples/flink-streaming.iml" filepath="$PROJECT_DIR$/flink-examples/flink-streaming.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/flink-tutorial.iml" filepath="$PROJECT_DIR$/.idea/flink-tutorial.iml" />
     </modules>
   </component>

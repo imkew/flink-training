@@ -4,15 +4,17 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.flink:flink-json:1.13.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.flink:force-shading:1.13.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-table-api-java-bridge_2.11:1.13.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-table-api-java:1.13.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.15" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.flink:force-shading:1.13.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-table-planner-blink_2.11:1.13.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-table-api-scala_2.11:1.13.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.flink:flink-table-api-scala-bridge_2.11:1.13.2" level="project" />

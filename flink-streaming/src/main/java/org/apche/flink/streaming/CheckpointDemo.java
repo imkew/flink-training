@@ -24,6 +24,12 @@ import org.slf4j.LoggerFactory;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * ./flink run -yid application_1648036096902_0019 -c org.apche.flink.streaming.CheckpointDemo
+ * /home/hadoop/flink-streaming-1.0-SNAPSHOT.jar -openCheckPoint true -checkpointSavePath hdfs:///flink/chk
+ *
+ * -s 指定chk路径恢复作业
+ */
 public class CheckpointDemo {
     private static final Logger LOG = LoggerFactory.getLogger(CheckpointDemo.class);
 
@@ -53,11 +59,11 @@ public class CheckpointDemo {
         dataStream.print();
 
         //输出kafka
-        Properties sink = new Properties();
-        sink.setProperty("bootstrap.servers", "kafka1:9092,kafka2:9092,kafka3:9092");
-        sink.setProperty("group.id", "wangketest");
-        sink.setProperty("auto.offset.reset", "latest");
-        dataStream.addSink(new FlinkKafkaProducer<Tuple2<String, Integer>>("wangketest", (KeyedSerializationSchema<Tuple2<String, Integer>>) new SimpleStringSchema(), sink));
+//        Properties sink = new Properties();
+//        sink.setProperty("bootstrap.servers", "kafka1:9092,kafka2:9092,kafka3:9092");
+//        sink.setProperty("group.id", "wangketest");
+//        sink.setProperty("auto.offset.reset", "latest");
+//        dataStream.addSink(new FlinkKafkaProducer<Tuple2<String, Integer>>("wangketest", (KeyedSerializationSchema<Tuple2<String, Integer>>) new SimpleStringSchema(), sink));
 
         env.execute();
     }
@@ -83,6 +89,9 @@ public class CheckpointDemo {
                 config.setCheckpointInterval(checkpointInterval);
                 config.setCheckpointTimeout(checkpointTimeout);
                 config.setMinPauseBetweenCheckpoints(checkpointTimeout);
+                //RETAIN_ON_CANCELLATION:表示一旦Flink处理程序被cancel后，会保留Checkpoint数据，以便根据实际需要恢复到指定的Checkpoint
+                //DELETE_ON_CANCELLATION: 表示一旦Flink处理程序被cancel后，会删除Checkpoint数据，只有job执行失败的时候才会保存checkpoint
+                env.getCheckpointConfig().enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
             }
         } catch (Exception e) {
             e.printStackTrace();

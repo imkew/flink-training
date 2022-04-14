@@ -1,0 +1,2 @@
+org.apache.flink.connectors.socket.factory.SocketDynamicTableFactory
+org.apache.flink.connectors.socket.factory.ChangelogCsvFormatFactory

@@ -10,6 +10,7 @@
         <module>flink-streaming</module>
         <module>flink-batch</module>
         <module>flink-sql</module>
+        <module>flink-connector</module>
     </modules>
 
     <properties>
